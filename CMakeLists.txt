@@ -28,6 +28,8 @@
 # POSSIBILITY OF SUCH DAMAGE.;
 #
 
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
 cmake_minimum_required(VERSION 3.7.1)
 
@@ -41,6 +43,8 @@ project(acados LANGUAGES C CXX)
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+
+
 
 ### Defaults
 
@@ -60,7 +64,7 @@ else()
 endif()
 
 if ("${CMAKE_HOST_SYSTEM_PROCESSOR}" STREQUAL "aarch64")
-    set(BLASFEO_TARGET "ARMV8A_ARM_CORTEX_A57" CACHE STRING "BLASFEO Target architecture")
+    set(BLASFEO_TARGET "ARMV8A_ARM_CORTEX_A76" CACHE STRING "BLASFEO Target architecture")
 else()
     set(BLASFEO_TARGET "X64_AUTOMATIC" CACHE STRING "BLASFEO Target architecture")
 endif()
